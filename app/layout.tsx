@@ -57,7 +57,22 @@ export const metadata: Metadata = {
     title: "Nexa Digital | Premium Dijital Ajans",
     description: "Kıbrıs ve Türkiye'nin elit işletmelerine pazar liderliğini getiren dijital ekosistemler.",
     images: ["/og-image.jpg"],
-    creator: "@nexadigital",
+    creator: "@wearenexa",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "any", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Nexa Digital",
   },
   robots: {
     index: true,
@@ -82,6 +97,7 @@ export const metadata: Metadata = {
     yandex: "yandex-verification",
     me: ["nexadigital@gmail.com"],
   },
+  themeColor: "#000000",
 };
 
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
