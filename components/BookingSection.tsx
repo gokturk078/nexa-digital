@@ -31,7 +31,6 @@ const sectors = [
   "İnşaat & Müteahhitlik",
   "Otomotiv & Servis",
   "Danışmanlık & Hizmet",
-  "E-ticaret",
   "Diğer",
 ];
 
@@ -52,6 +51,7 @@ async function sendTelegramNotification(data: {
   sector: string;
   date: string;
   time: string;
+  source?: string;
 }) {
   try {
     const response = await fetch("/api/booking", {
@@ -86,7 +86,7 @@ function getNext14Days(): { date: Date; label: string; dayName: string }[] {
 }
 
 // ===== ANA COMPONENT =====
-export default function BookingSection() {
+export default function BookingSection({ source = "Genel" }: { source?: string }) {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -128,6 +128,7 @@ export default function BookingSection() {
         sector: formData.sector,
         date: formData.dateLabel,
         time: formData.time,
+        source: source,
       });
       setIsSuccess(true);
       setStep(3);
@@ -245,8 +246,8 @@ export default function BookingSection() {
                   <div key={s} className="flex items-center gap-3">
                     <div
                       className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${step >= s
-                          ? "bg-gradient-to-r from-[#C9A84C] to-[#FFD700] text-black"
-                          : "bg-white/5 text-gray-500 border border-white/10"
+                        ? "bg-gradient-to-r from-[#C9A84C] to-[#FFD700] text-black"
+                        : "bg-white/5 text-gray-500 border border-white/10"
                         }`}
                     >
                       {step > s ? "✓" : s}
@@ -353,8 +354,8 @@ export default function BookingSection() {
                       onClick={() => setStep(2)}
                       disabled={!isStep1Valid}
                       className={`w-full mt-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 ${isStep1Valid
-                          ? "bg-gradient-to-r from-[#C9A84C] to-[#00D4FF] text-black hover:scale-[1.02] cursor-pointer"
-                          : "bg-white/5 text-gray-600 cursor-not-allowed"
+                        ? "bg-gradient-to-r from-[#C9A84C] to-[#00D4FF] text-black hover:scale-[1.02] cursor-pointer"
+                        : "bg-white/5 text-gray-600 cursor-not-allowed"
                         }`}
                     >
                       Devam Et — Tarih Seçin
@@ -397,8 +398,8 @@ export default function BookingSection() {
                               updateForm("dateLabel", `${day.label} ${day.dayName}`);
                             }}
                             className={`flex-shrink-0 w-[100px] p-3 rounded-xl border text-center transition-all duration-200 snap-center ${formData.date === day.date.toISOString().split("T")[0]
-                                ? "border-[#C9A84C] bg-[#C9A84C]/10 text-white"
-                                : "border-white/10 bg-white/[0.02] text-gray-400 hover:border-white/20 hover:bg-white/[0.04]"
+                              ? "border-[#C9A84C] bg-[#C9A84C]/10 text-white"
+                              : "border-white/10 bg-white/[0.02] text-gray-400 hover:border-white/20 hover:bg-white/[0.04]"
                               }`}
                           >
                             <div className="text-xs opacity-60">{day.dayName}</div>
@@ -425,8 +426,8 @@ export default function BookingSection() {
                               key={time}
                               onClick={() => updateForm("time", time)}
                               className={`relative min-h-[44px] py-2.5 px-2 rounded-xl border text-sm font-medium transition-all duration-200 flex items-center justify-center ${formData.time === time
-                                  ? "border-[#C9A84C] bg-[#C9A84C]/10 text-white"
-                                  : "border-white/10 bg-white/[0.02] text-gray-400 hover:border-white/20"
+                                ? "border-[#C9A84C] bg-[#C9A84C]/10 text-white"
+                                : "border-white/10 bg-white/[0.02] text-gray-400 hover:border-white/20"
                                 }`}
                             >
                               {badge}
@@ -442,8 +443,8 @@ export default function BookingSection() {
                       onClick={handleSubmit}
                       disabled={!isStep2Valid || isSubmitting}
                       className={`w-full mt-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 ${isStep2Valid && !isSubmitting
-                          ? "bg-gradient-to-r from-[#C9A84C] to-[#00D4FF] text-black hover:scale-[1.02] cursor-pointer pulse-glow"
-                          : "bg-white/5 text-gray-600 cursor-not-allowed"
+                        ? "bg-gradient-to-r from-[#C9A84C] to-[#00D4FF] text-black hover:scale-[1.02] cursor-pointer pulse-glow"
+                        : "bg-white/5 text-gray-600 cursor-not-allowed"
                         }`}
                     >
                       {isSubmitting ? (

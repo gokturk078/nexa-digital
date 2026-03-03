@@ -1,98 +1,100 @@
 'use client';
 
 import React, { useState } from 'react';
-import { SectionHeading } from './ui/SectionHeading';
-import ScrollReveal from './ui/ScrollReveal';
-import StaggerContainer, { staggerItem } from './ui/StaggerContainer';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus, HelpCircle } from 'lucide-react';
+import ScrollReveal from './ui/ScrollReveal';
 
-interface FAQProps {
-  region?: 'tr' | 'cy';
+interface FAQ {
+  question: string;
+  answer: string;
 }
 
-export function FAQSection({ region }: FAQProps) {
-  const faqs = [
+interface FAQSectionProps {
+  faqs?: FAQ[];
+  title?: string;
+  subtitle?: string;
+  region?: string;
+}
+
+export default function FAQSection({
+  faqs: propFaqs,
+  title = "Sıkça Sorulan Sorular",
+  subtitle = "Süreçlerimiz ve stratejilerimiz hakkında merak edilen teknik detaylar.",
+  region
+}: FAQSectionProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const defaultFaqs = [
     {
-      q: "Neden bu kadar pahalısınız?",
-      a: "Pahalı değiliz — değerliyiz. Bir web sitesi değil, size müşteri kazandıran bir dijital ekosistem inşa ediyoruz. Yatırımınız ilk 3 ayda kendini geri öder."
+      question: "Nexa Digital hangi bölgelerde hizmet veriyor?",
+      answer: region === 'cy'
+        ? "Kıbrıs (KKTC) merkezli bir ajans olarak tüm adada ve global pazarlarda hizmet veriyoruz."
+        : "İstanbul ve Kıbrıs ofislerimizle Türkiye, KKTC ve Avrupa pazarlarındaki markalara hizmet veriyoruz.",
     },
     {
-      q: "Süreç nasıl işliyor?",
-      a: "1) Ücretsiz strateji görüşmesi → 2) İhtiyaç analizi & teklif → 3) Tasarım onayı → 4) Geliştirme → 5) Test & lansman → 6) Destek & büyüme takibi. Her adımda şeffaf iletişim."
+      question: "Projeler ne kadar sürede tamamlanıyor?",
+      answer: "Web tasarım projeleri 4-6 hafta, SEO projeleri ise 6-12 aylık bir stratejik plan dahilinde ilerler."
     },
     {
-      q: "Teslim süresi ne kadar?",
-      a: "Projenin kapsamına göre 10-25 iş günü. Starter paket 10, Premium 15, Corporate 25 iş günü. Acil projeler için express seçenek mevcuttur."
-    },
-    {
-      q: region === 'tr' ? "Sadece Türkiye'de mi hizmet veriyorsunuz?" : "Sadece Kıbrıs'ta mı hizmet veriyorsunuz?",
-      a: region === 'tr'
-        ? "İstanbul merkezli ekibimizle tüm Türkiye ve Kıbrıs genelinde hizmet veriyoruz. Hibrit çalışma modelimizle her noktadaki işletmeye premium çözüm sunuyoruz."
-        : "Hayır. Kıbrıs ve Türkiye genelinde hizmet veriyoruz. Lefkoşa ve Girne'deki fiziksel varlığımızın yanı sıra tüm dünyaya dijital çözüm üretebiliyoruz."
-    },
-    {
-      q: "Mevcut sitemin yenilenmesi mümkün mü?",
-      a: "Kesinlikle. Mevcut sitenizi analiz eder, zayıf noktaları belirler ve sıfırdan veya mevcut altyapı üzerinde yeniden inşa ederiz."
-    },
-    {
-      q: "SEO sonuçlarını ne zaman görürüm?",
-      a: "Teknik SEO iyileştirmeleri anında etkilidir. Organik sıralama sonuçları genellikle 2-4 ay içinde belirgin şekilde görülür. İlerlemeyi aylık raporlarla takip edersiniz."
+      question: "Fiyatlandırma politikanız nasıl?",
+      answer: "Her işletmenin ihtiyacı farklıdır. Markanızın hedeflerine ve rekabet durumuna göre özel bir 'Sales Machine' teklifi hazırlıyoruz."
     }
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const faqs = propFaqs || defaultFaqs;
 
   return (
-    <section id="sss" className="py-24 lg:py-32 px-4 md:px-6">
+    <section className="py-24 px-4 bg-gradient-to-b from-black to-[#050505]">
       <div className="container mx-auto max-w-4xl">
-        <SectionHeading
-          title="Sıkça Sorulan Sorular"
-        />
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/5 text-[#C9A84C] text-sm font-medium mb-6">
+              <HelpCircle size={16} /> BİLGİ MERKEZİ
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sora">
+              {title}
+            </h2>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              {subtitle}
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <StaggerContainer className="space-y-4">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div key={index} variants={staggerItem}>
-              <div
-                className="glass rounded-2xl p-6 cursor-pointer transition-colors duration-300 hover:bg-white/[0.05]"
-                onClick={() => toggleFAQ(index)}
-              >
-                <div className="flex justify-between items-center gap-4">
-                  <h3 className="text-lg md:text-xl font-bold text-white font-sora">
-                    {faq.q}
-                  </h3>
-                  <motion.div
-                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-[#C9A84C] shrink-0"
-                  >
-                    <ChevronDown size={24} />
-                  </motion.div>
-                </div>
+            <ScrollReveal key={index} delay={index * 0.05}>
+              <div className="border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+                <button
+                  onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between gap-4"
+                >
+                  <span className="text-lg font-bold text-white group-hover:text-[#C9A84C] transition-colors font-sora">
+                    {faq.question}
+                  </span>
+                  <div className={`shrink-0 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-all ${activeIndex === index ? 'bg-[#C9A84C] border-[#C9A84C] text-black rotate-180' : 'text-gray-400'}`}>
+                    {activeIndex === index ? <Minus size={18} /> : <Plus size={18} />}
+                  </div>
+                </button>
 
                 <AnimatePresence>
-                  {openIndex === index && (
+                  {activeIndex === index && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
                     >
-                      <p className="pt-4 text-gray-400 leading-relaxed">
-                        {faq.a}
-                      </p>
+                      <div className="px-6 pb-6 text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+                        {faq.answer}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-            </motion.div>
+            </ScrollReveal>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );

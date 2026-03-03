@@ -12,15 +12,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'iletisim', priority: 0.8, changeFrequency: 'monthly' },
     { url: 'portfolyo', priority: 0.8, changeFrequency: 'weekly' },
 
-    // Services
-    { url: 'hizmetler/web-tasarim', priority: 0.8, changeFrequency: 'weekly' },
-    { url: 'hizmetler/kurumsal-seo', priority: 0.8, changeFrequency: 'weekly' },
-    { url: 'hizmetler/ai-chatbot', priority: 0.8, changeFrequency: 'weekly' },
-    { url: 'hizmetler/e-ticaret-cozumleri', priority: 0.8, changeFrequency: 'weekly' },
-    { url: 'hizmetler/performans-pazarlama', priority: 0.8, changeFrequency: 'weekly' },
-    { url: 'hizmetler/kurumsal-kimlik-tasarimi', priority: 0.8, changeFrequency: 'weekly' },
-    { url: 'hizmetler/hiz-optimizasyonu', priority: 0.8, changeFrequency: 'weekly' },
-    { url: 'hizmetler/mobil-uygulama-gelistirme', priority: 0.8, changeFrequency: 'weekly' },
+    // Success Stories (High Authority Proof)
+    { url: 'basari-hikayeleri/noir-moda-nuans', priority: 0.8, changeFrequency: 'monthly' },
+    { url: 'basari-hikayeleri/nexa-luxe-estate', priority: 0.8, changeFrequency: 'monthly' },
+    { url: 'basari-hikayeleri/oto-yasin', priority: 0.8, changeFrequency: 'monthly' },
+
+    // Services (Core Revenue Hubs)
+    { url: 'hizmetler/web-tasarim', priority: 0.9, changeFrequency: 'weekly' },
+    { url: 'hizmetler/kurumsal-seo', priority: 0.9, changeFrequency: 'weekly' },
+    { url: 'hizmetler/ai-chatbot', priority: 0.9, changeFrequency: 'weekly' },
+    { url: 'hizmetler/ai-chatbot', priority: 0.9, changeFrequency: 'weekly' },
+    { url: 'hizmetler/performans-pazarlama', priority: 0.9, changeFrequency: 'weekly' },
+    { url: 'hizmetler/kurumsal-kimlik-tasarimi', priority: 0.9, changeFrequency: 'weekly' },
+    { url: 'hizmetler/hiz-optimizasyonu', priority: 0.9, changeFrequency: 'weekly' },
+    { url: 'hizmetler/mobil-uygulama-gelistirme', priority: 0.9, changeFrequency: 'weekly' },
 
     // Sectors
     { url: 'sektorler/saglik-web-tasarim-ve-seo', priority: 0.8, changeFrequency: 'weekly' },
@@ -33,9 +38,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'sektorler/danismanlik-ve-egitim-platformlari', priority: 0.8, changeFrequency: 'weekly' },
 
     // Blog Pillars
-    { url: 'blog/2026-dijital-pazarlama-trendleri', priority: 0.6, changeFrequency: 'monthly' },
-    { url: 'blog/turkiye-kibris-seo-stratejisi', priority: 0.6, changeFrequency: 'monthly' },
-    { url: 'blog/yapay-zeka-ile-satis-otomasyonu', priority: 0.6, changeFrequency: 'monthly' },
+    { url: 'blog/2026-dijital-pazarlama-trendleri', priority: 0.7, changeFrequency: 'monthly' },
+    { url: 'blog/turkiye-kibris-seo-stratejisi', priority: 0.7, changeFrequency: 'monthly' },
+    { url: 'blog/yapay-zeka-ile-satis-otomasyonu', priority: 0.7, changeFrequency: 'monthly' },
   ];
 
   return routes.map((route) => ({

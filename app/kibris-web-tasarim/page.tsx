@@ -11,10 +11,10 @@ export const metadata = {
     }
 };
 
-import Home from '../page';
+import { HomeContent } from '@/components/HomeContent';
 
 // Reusing the Home component for the local landing page
 // In a full implementation, you could pass props to localise the text (e.g. "Kıbrıs'ın #1'i")
 export default function KibrisPage() {
-    return <Home region="cy" />;
+    return <HomeContent region="cy" />;
 }

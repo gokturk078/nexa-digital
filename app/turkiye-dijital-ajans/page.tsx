@@ -11,9 +11,9 @@ export const metadata = {
     }
 };
 
-import Home from '../page';
+import { HomeContent } from '@/components/HomeContent';
 
 // Reusing the Home component for the local landing page
 export default function TurkiyePage() {
-    return <Home region="tr" />;
+    return <HomeContent region="tr" />;
 }

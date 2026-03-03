@@ -23,10 +23,10 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Hizmetler', href: '#hizmetler' },
-    { name: 'Portföy', href: '#portfoy' },
-    { name: 'Fiyatlandırma', href: '#fiyatlandirma' },
-    { name: 'SSS', href: '#sss' },
+    { name: 'Hizmetler', href: '/#hizmetler' },
+    { name: 'Portfolyo', href: '/portfolyo' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Hakkımızda', href: '/hakkimizda' },
     { name: 'Randevu', href: '#randevu' },
   ];
 
@@ -42,9 +42,9 @@ export function Navbar() {
           >
             <div className="container mx-auto px-4 py-2 text-center text-xs md:text-sm font-bold flex items-center justify-center gap-2 md:gap-4 relative">
               <span className="pr-6 md:pr-0">🔥 {currentMonth} ayı strateji görüşmeleri için son 5 kontenjan!</span>
-              <a href="#randevu" className="hidden md:inline-flex items-center gap-1 underline underline-offset-2 hover:text-white transition-colors">
+              <Link href="/iletisim#randevu" className="hidden md:inline-flex items-center gap-1 underline underline-offset-2 hover:text-white transition-colors">
                 Hemen yerinizi ayırtın <ArrowRight size={14} />
-              </a>
+              </Link>
               <button
                 onClick={() => setIsBannerVisible(false)}
                 className="absolute right-2 top-1/2 -translate-y-1/2 hover:opacity-70 p-2"
@@ -98,8 +98,8 @@ export function Navbar() {
                 </motion.div>
               )}
             </AnimatePresence>
-            <a
-              href="#randevu"
+            <Link
+              href="/iletisim#randevu"
               className={cn(
                 "relative inline-flex items-center justify-center font-bold rounded-xl transition-all duration-300 overflow-hidden group",
                 isScrolled
@@ -111,7 +111,7 @@ export function Navbar() {
               <span className="relative z-10 flex items-center gap-2">
                 Projeyi Başlat <ArrowRight size={16} />
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}

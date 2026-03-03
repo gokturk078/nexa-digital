@@ -37,7 +37,7 @@ export function Footer() {
             <Link href="/hizmetler/web-tasarim" className="text-gray-400 hover:text-white transition-colors">Web Tasarım & UX</Link>
             <Link href="/hizmetler/kurumsal-seo" className="text-gray-400 hover:text-white transition-colors">Kurumsal SEO</Link>
             <Link href="/hizmetler/ai-chatbot" className="text-gray-400 hover:text-white transition-colors">AI Chatbot</Link>
-            <Link href="/hizmetler/e-ticaret-cozumleri" className="text-gray-400 hover:text-white transition-colors">E-Ticaret</Link>
+            <Link href="/hizmetler/ai-chatbot" className="text-gray-400 hover:text-white transition-colors">AI Chatbot</Link>
             <Link href="/hizmetler/hiz-optimizasyonu" className="text-gray-400 hover:text-white transition-colors">Hız Optimizasyonu</Link>
           </div>
 

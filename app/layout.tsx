@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   keywords: [
     "kıbrıs web tasarım", "lefkoşa web tasarım ajansı", "kuzey kıbrıs dijital ajans",
     "girne web tasarım", "kıbrıs seo uzmanı", "lüks web sitesi tasarımı türkiye",
-    "türkiye premium dijital ajans", "kıbrıs e-ticaret yazılımı", "dönüşüm odaklı web sitesi",
+    "türkiye premium dijital ajans", "dönüşüm odaklı web sitesi",
     "kurumsal seo danışmanlığı", "kıbrıs dijital pazarlama", "ai chatbot entegrasyonu"
   ],
   authors: [{ name: "Nexa Digital", url: "https://wearenexa.co" }],
@@ -171,7 +171,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Starter Showcase Web Tasarım"
+            "name": "Showcase Presence (₺20k)"
+          },
+          "price": "20000",
+          "priceCurrency": "TRY"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Digital Authority (₺28k)"
           },
           "price": "28000",
           "priceCurrency": "TRY"
@@ -180,7 +189,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Premium Ecosystem (Web + SEO + AI)"
+            "name": "Elite Hybrid Bundle (₺45k)"
           },
           "price": "45000",
           "priceCurrency": "TRY"
@@ -199,7 +208,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "name": "Kıbrıs'ta profesyonel web tasarım fiyatları ne kadar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nexa Digital olarak sıradan değil, satış odaklı premium sistemler kuruyoruz. Tek sayfalık performans siteleri 28.000 TL'den başlarken, çok sayfalı AI chatbot ve SEO entegreli tam ekosistemler 45.000 TL bandındadır."
+          "text": "Nexa Digital olarak sıradan değil, satış odaklı premium sistemler kuruyoruz. Tek sayfalık performans siteleri 20.000 TL'den başlarken, çok sayfalı AI chatbot ve SEO entegreli tam ekosistemler 28.000 TL bandındadır."
         }
       },
       {

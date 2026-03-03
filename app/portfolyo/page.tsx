@@ -1,9 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { PortfolioSection } from '@/components/PortfolioSection';
+import ScrollReveal from '@/components/ui/ScrollReveal';
+import StatsBar from '@/components/StatsBar';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+
+const PortfolioSection = dynamic(() => import('@/components/PortfolioSection').then(mod => mod.PortfolioSection));
+const BookingSection = dynamic(() => import('@/components/BookingSection'));
+const PainSection = dynamic(() => import('@/components/PainSection').then(mod => mod.PainSection));
 
 export const metadata: Metadata = {
     title: "Portfolyo | Nexa Digital - Elit Proje Galerisi",
@@ -18,30 +24,35 @@ export default function Portfolyo() {
         <main className="bg-black min-h-screen text-white">
             <Navbar />
 
-            <section className="pt-32 pb-10 px-4">
-                <div className="container mx-auto max-w-7xl">
-                    <SectionHeading
-                        title="Dijital Başarı Hikayeleri"
-                        subtitle="Sadece web sitesi yapmıyoruz; sektörleri domine eden, milyarlarca TL ciro üreten dijital ekosistemler kuruyoruz."
-                    />
+            <div className="container mx-auto max-w-7xl px-4 pt-24">
+                <Breadcrumbs items={[{ name: "Portfolyo", href: "/portfolyo" }]} />
+            </div>
+
+            {/* Premium Hero */}
+            <section className="pt-20 pb-20 px-4 relative overflow-hidden">
+                <div className="absolute top-0 right-1/2 translate-x-1/2 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[120px]" />
+                <div className="container mx-auto max-w-7xl relative z-10 text-center">
+                    <ScrollReveal>
+                        <span className="text-gold-500 font-semibold tracking-wider uppercase text-sm mb-4 block">Proven Excellence</span>
+                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 font-sora leading-tight">
+                            Dijital <span className="text-gradient-gold">Başarı</span> Hikayeleri.
+                        </h1>
+                        <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                            Sadece web sitesi yapmıyoruz; sektörleri domine eden, <strong className="text-white">milyarlarca TL ciro</strong> üreten dijital ekosistemler kuruyoruz.
+                        </p>
+                    </ScrollReveal>
                 </div>
             </section>
 
-            {/* Reuse the existing PortfolioSection component but in a full-page context */}
-            <PortfolioSection />
+            <StatsBar />
 
-            <section className="py-24 bg-white/[0.02]">
-                <div className="container mx-auto max-w-4xl text-center px-4">
-                    <h2 className="text-3xl font-bold mb-6 font-sora">Sıradaki Başarı Hikayesi Sizin Markanız Olsun</h2>
-                    <p className="text-gray-400 mb-10 text-lg">
-                        Rakiplerinizin imrenerek bakacağı, müşterilerinizin saniyeler içinde bağlandığı o platformu birlikte inşa edelim.
-                    </p>
-                    <a href="/iletisim" className="inline-block py-4 px-10 rounded-full bg-[var(--color-gold)] text-black font-bold hover:bg-white transition-all transform hover:scale-105">
-                        Ücretsiz Analiz Alın
-                    </a>
-                </div>
-            </section>
+            <div className="py-10">
+                <PortfolioSection />
+            </div>
 
+            <PainSection />
+
+            <BookingSection source="Kurumsal: Portfolyo Sayfası" />
             <Footer />
         </main>
     );

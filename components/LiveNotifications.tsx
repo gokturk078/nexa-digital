@@ -11,7 +11,7 @@ const notificationPool = [
   { text: "Luna Güzellik SPA strateji görüşmesi ayarladı.", type: "strategy" },
   { text: "Can Mimarlık (Global) Corporate Web paketini aldı.", type: "web" },
   { text: "AutoFix Premium (Otomotiv) 4. ay SEO yenilemesini yaptı.", type: "seo" },
-  { text: "Zeynep Hanım (E-ticaret) 28,000₺'lik dönüşüm paketine geçti.", type: "web" }
+  { text: "Zeynep Hanım (Mimarlık Ofisi) Premium SEO paketine geçiş yaptı.", type: "seo" }
 ];
 
 export default function LiveNotifications() {

@@ -6,7 +6,17 @@ export async function POST(req: NextRequest) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
-  const message = `
+  const isQuickLead = data.type === 'lead';
+
+  const message = isQuickLead ? `
+⚡ *HIZLI ANALİZ / GERİ ARAMA TALEBİ*
+━━━━━━━━━━━━━━━━━━━━
+🌐 *Web Sitesi:* ${data.website}
+📱 *Telefon:* ${data.phone}
+📍 *Kaynak:* ${data.source || "Genel"}
+━━━━━━━━━━━━━━━━━━━━
+🚀 *Potansiyel müşteri sizi bekliyor!*
+  `.trim() : `
 🔔 *YENİ STRATEJİ GÖRÜŞMESİ TALEBİ*
 ━━━━━━━━━━━━━━━━━━━━
 👤 *İsim:* ${data.name}
@@ -16,6 +26,7 @@ export async function POST(req: NextRequest) {
 🏷️ *Sektör:* ${data.sector}
 📅 *Tarih:* ${data.date}
 🕐 *Saat:* ${data.time}
+📍 *Kaynak:* ${data.source || "Genel"}
 ━━━━━━━━━━━━━━━━━━━━
 ⚡ *Hemen arayın ve kapatın!*
   `.trim();

@@ -8,53 +8,53 @@ import { Check } from 'lucide-react';
 export function PricingSection() {
   const plans = [
     {
-      name: "Starter Showcase",
-      price: "₺28.000",
-      description: "Dijitalde güçlü bir ilk izlenim",
+      name: "Showcase Presence",
+      price: "₺20.000",
+      description: "Dijitalde güçlü ve hızlı bir başlangıç",
       features: [
         "Tek sayfalık ultra-hızlı web sitesi",
         "Mobil öncelikli responsive tasarım",
-        "Temel SEO altyapısı",
-        "Google My Business optimizasyonu",
-        "WhatsApp entegrasyonu",
+        "Temel SEO & Google Haritalar kaydı",
+        "SSL Sertifikası & Güvenlik",
+        "WhatsApp Butonu entegrasyonu",
         "1 ay teknik destek"
       ],
-      delivery: "Teslim: 10 iş günü",
+      delivery: "Teslim: 7 iş günü",
       buttonText: "Başvuru Yap →",
       highlight: false
     },
     {
-      name: "Premium Ecosystem",
-      price: "₺45.000",
-      description: "Rakiplerinizi geride bırakan dijital ekosistem",
+      name: "Digital Authority",
+      price: "₺28.000",
+      description: "Sektörünüzü domine eden satış makinesi",
       features: [
-        "Çok sayfalık dinamik web sitesi (5-8 sayfa)",
-        "AI destekli akıllı chatbot",
-        "Randevu / Rezervasyon sistemi",
-        "Gelişmiş SEO & yerel arama dominasyonu",
-        "Google Analytics & dönüşüm takibi",
-        "Profesyonel copywriting (TR & EN)",
-        "Sosyal medya entegrasyonu",
-        "3 ay teknik destek + performans raporu"
+        "Çok sayfalık dinamik web sitesi",
+        "Karar Ağacı Tabanlı AI Chatbot",
+        "Ultra SEO Mimarlığı (Silo Yapısı)",
+        "Google Search Console & Analytics",
+        "Hız Optimizasyonu (< 1s açılış)",
+        "Profesyonel Copywriting (Satış Odaklı)",
+        "Gelişmiş Randevu / Rezervasyon",
+        "3 ay öncelikli teknik destek"
       ],
-      delivery: "Teslim: 15 iş günü",
+      delivery: "Teslim: 12 iş günü",
       buttonText: "Hemen Başla →",
       highlight: true,
-      badge: "⭐ En Popüler"
+      badge: "⭐ En Çok Tercih Edilen"
     },
     {
-      name: "Corporate Integration",
-      price: "₺75.000+",
-      description: "Sektörünüzün dijital lideri olun",
+      name: "Elite Hybrid Bundle",
+      price: "₺45.000",
+      description: "Tam ekosistem: Web + Mobil Uygulama",
       features: [
         "Premium'daki her şey dahil",
-        "Özel CRM entegrasyonu",
-        "Çok dilli altyapı (TR / EN / RU)",
-        "E-ticaret veya özel portal modülü",
-        "Otomatik e-posta pazarlama",
-        "6 ay SEO & içerik yönetimi",
-        "Özel dashboard & analitik",
-        "7/24 öncelikli destek"
+        "iOS & Android Mobil Uygulama",
+        "Veritabanı Odaklı Altyapı",
+        "Özel Admin Paneli / CRM Entegrasyonu",
+        "Çok Dilli Altyapı (TR / EN / RU)",
+        "Yüksek Trafik Ölçeklenebilirliği",
+        "Özel Dashboard & Analitik",
+        "12 ay VIP teknik destek"
       ],
       delivery: "Teslim: 25 iş günü",
       buttonText: "İletişime Geç →",
@@ -154,6 +154,49 @@ export function PricingSection() {
             </ScrollReveal>
           ))}
         </div>
+        {/* AI Chatbot Subscription Add-on */}
+        <ScrollReveal delay={0.2}>
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white/[0.02] border border-white/10 rounded-[40px] p-8 md:p-12 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-cyan-500/5 rounded-full blur-[80px]" />
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-6">
+                ✨ Sürekli Gelişim Modeli
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 font-sora">
+                AI Chatbot <span className="text-cyan-400">Destek & Bakım</span>
+              </h3>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                Yapay zekanız asla eskimesin. Sektörel değişimlere ve müşteri taleplerine göre chatbotunuzu her ay optimize ediyor, yeni bilgilerle eğitiyoruz.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  "Sürekli Öğrenme & Bilgi Güncelleme",
+                  "Satış Mantığı Optimizasyonu",
+                  "7/24 Teknik Kontrol & Güvenlik",
+                  "Aylık Performans Raporu"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative z-10 flex flex-col items-center lg:items-end justify-center">
+              <div className="p-8 rounded-3xl bg-black/40 border border-white/10 backdrop-blur-md text-center lg:text-right min-w-[280px]">
+                <div className="text-gray-400 text-sm mb-1 uppercase tracking-tighter">İşletme Aboneliği</div>
+                <div className="text-5xl font-bold text-white mb-2 font-sora">₺2.000<span className="text-xl text-gray-500 font-normal">/ay</span></div>
+                <p className="text-gray-500 text-xs mb-6 italic">Kuruluş sonrası opsiyonel aylık paket</p>
+                <a
+                  href="#randevu"
+                  className="inline-block px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-cyan-400 transition-colors"
+                >
+                  Hemen Abone Ol
+                </a>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
 
         {/* Risk Reversal Guarantee */}
         <ScrollReveal delay={0.4}>
@@ -166,7 +209,7 @@ export function PricingSection() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-3">Nexa %100 Performans Garantisi</h3>
                 <p className="text-gray-400 leading-relaxed text-lg">
-                  Biz sadece "güzel" web siteleri yapmıyoruz, para kazandıran sistemler kuruyoruz. Eğer kurduğumuz sistem ilk 90 gün içinde size ölçülebilir bir dijital büyüme (lead/randevu artışı) sağlamazsa, hedeflere ulaşana kadar sizin için <span className="text-[#C9A84C] font-bold">ÜCRETSİZ</span> çalışmaya devam ediyoruz. <br/><span className="text-white font-medium mt-2 inline-block">Risk bizim, büyüme sizin.</span>
+                  Biz sadece "güzel" web siteleri yapmıyoruz, para kazandıran sistemler kuruyoruz. Eğer kurduğumuz sistem ilk 90 gün içinde size ölçülebilir bir dijital büyüme (lead/randevu artışı) sağlamazsa, hedeflere ulaşana kadar sizin için <span className="text-[#C9A84C] font-bold">ÜCRETSİZ</span> çalışmaya devam ediyoruz. <br /><span className="text-white font-medium mt-2 inline-block">Risk bizim, büyüme sizin.</span>
                 </p>
               </div>
             </div>
