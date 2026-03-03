@@ -1,0 +1,18 @@
+{
+  "runtime": "edge",
+  "name": "api/booking",
+  "deploymentTarget": "v8-worker",
+  "entrypoint": "index.js",
+  "assets": [],
+  "framework": {
+    "slug": "nextjs",
+    "version": "15.5.12"
+  },
+  "environment": {
+    "__NEXT_BUILD_ID": "jK-XqQxyFtNFev6zVqiDt",
+    "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "Ps61xalcz5aGYcTL0tSfjay2Fr3+Chuw39WE8Cus9gc=",
+    "__NEXT_PREVIEW_MODE_ID": "623dc596a574bb00af40ffe63f4f910d",
+    "__NEXT_PREVIEW_MODE_SIGNING_KEY": "d75f934a429333790516c79f65e4d5ffdd4f698e5a06589d2392e3aeed60143f",
+    "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "df341acafee7836e1fd6c6a5cff1343933f0dcadc912d50428a6afc714470546"
+  }
+}
