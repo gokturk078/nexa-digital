@@ -95,7 +95,6 @@ export const metadata: Metadata = {
   verification: {
     google: "yoursiteverificationcode", // SEO Check: Add Google verification
     yandex: "yandex-verification",
-    me: ["info@wearenexa.co"],
   },
 };
 
@@ -128,7 +127,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "name": "Nexa Digital - Lüks Web Tasarım & Kurumsal SEO",
     "image": "https://wearenexa.co/og-image.jpg",
     "url": "https://wearenexa.co",
-    "telephone": "+905480000000",
     "priceRange": "₺₺₺",
     "areaServed": [
       { "@type": "Country", "name": "Cyprus" },

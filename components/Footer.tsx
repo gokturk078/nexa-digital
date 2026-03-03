@@ -64,14 +64,6 @@ export function Footer() {
           {/* Column 5 - Contact */}
           <div className="flex flex-col gap-4" id="iletisim">
             <h4 className="text-white font-bold font-sora mb-2">İletişim</h4>
-            <div className="flex items-center gap-3 text-gray-400">
-              <Mail size={18} className="shrink-0 text-[var(--color-gold)]" />
-              <a href="mailto:info@wearenexa.co" className="hover:text-white transition-colors">info@wearenexa.co</a>
-            </div>
-            <div className="flex items-center gap-3 text-gray-400">
-              <Phone size={18} className="shrink-0 text-[var(--color-gold)]" />
-              <a href="tel:+905480000000" className="hover:text-white transition-colors">+90 548 XXX XX XX</a>
-            </div>
             <Link href="/iletisim" className="inline-flex items-center gap-2 text-[var(--color-gold)] hover:text-white transition-colors mt-2 font-medium">
               Teklif Alın →
             </Link>
