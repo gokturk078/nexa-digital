@@ -24,23 +24,27 @@ const ExitIntentPopup = dynamic(() => import('@/components/ExitIntentPopup'));
 const LiveNotifications = dynamic(() => import('@/components/LiveNotifications'));
 const FloatingWhatsApp = dynamic(() => import('@/components/FloatingWhatsApp'));
 
-export default function Home() {
+interface HomeProps {
+  region?: 'tr' | 'cy';
+}
+
+export default function Home({ region }: HomeProps) {
   return (
     <main className="bg-black min-h-screen text-white overflow-x-hidden selection:bg-[#C9A84C] selection:text-black">
       <Navbar />
-      <HeroSection />          {/* 1. İlk izlenim — kanca */}
+      <HeroSection region={region} />          {/* 1. İlk izlenim — kanca */}
       <StatsBar />             {/* 2. Sayılarla güven */}
       <TrustBadges />          {/* 3. Teknoloji rozetleri */}
-      <IndustriesSection />    {/* 4. YENİ — "Bu benim sektörüm" */}
+      <IndustriesSection region={region} />    {/* 4. YENİ — "Bu benim sektörüm" */}
       <PainSection />          {/* 5. Acı noktaları — korku */}
-      <ServicesSection />      {/* 6. Çözümler — umut */}
+      <ServicesSection region={region} />      {/* 6. Çözümler — umut */}
       <PortfolioSection />     {/* 7. Kanıt — canlı demolar */}
       <ProcessSection />       {/* 8. YENİ — "Nasıl çalışıyor?" güvence */}
       <FounderManifesto />     {/* 8.5 YENİ — Neden Farklıyız? (Otorite) */}
       <PricingSection />       {/* 9. Karar noktası */}
       <BookingSection />       {/* 10. YENİ — Randevu sistemi (CLOSER) */}
       <TestimonialsSection />  {/* 11. Sosyal kanıt */}
-      <FAQSection />           {/* 12. İtiraz kırma */}
+      <FAQSection region={region} />           {/* 12. İtiraz kırma */}
       <CTASection />           {/* 13. Son kapanış — şimdi veya asla */}
       <Footer />               {/* 14. Temel bilgiler */}
 

@@ -151,7 +151,15 @@ const industries = [
   },
 ];
 
-export default function IndustriesSection() {
+interface IndustriesProps {
+  region?: 'tr' | 'cy';
+}
+
+export default function IndustriesSection({ region }: IndustriesProps) {
+  const trText = "Türkiye genelinde (İstanbul, Ankara, İzmir) 8 farklı sektörde 120+ projeyle kanıtlanmış sonuçlar.";
+  const cyText = "Kuzey Kıbrıs'ın (Lefkoşa, Girne, Mağusa) öncü işletmeleri için 8 farklı sektörde 120+ projeyle kanıtlanmış sonuçlar.";
+  const defaultText = "8 farklı sektörde 120+ projeyle kanıtlanmış sonuçlar. Sektörünüzün acı noktalarını biliyoruz — çünkü onları defalarca çözdük.";
+
   return (
     <section id="sektorler" className="py-24 lg:py-32 px-4">
       <div className="max-w-7xl mx-auto">
@@ -165,8 +173,7 @@ export default function IndustriesSection() {
               Her Sektörün Dijital DNA'sını Çözdük
             </h2>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              8 farklı sektörde 120+ projeyle kanıtlanmış sonuçlar.
-              Sektörünüzün acı noktalarını biliyoruz — çünkü onları defalarca çözdük.
+              {region === 'tr' ? trText : region === 'cy' ? cyText : defaultText}
             </p>
           </div>
         </ScrollReveal>

@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     title: "AI Chatbot Sistemleri & Satış Asistanı | Nexa Digital",
     description: "Markanızı 24 saat uyanık tutan, %100 kapanış odaklı Özel Yapay Zeka (AI) Chatbot ve Otomasyon Sistemleri.",
     alternates: {
-        canonical: "https://nexadigital.com/hizmetler/ai-chatbot"
+        canonical: "https://wearenexa.co/hizmetler/ai-chatbot"
     },
     openGraph: {
         title: "Otonom Yapay Zeka Asistanı | Nexa Digital",
         description: "Müşterilerinize 3 saniyede, gece yarısında bile satış yapın.",
-        url: "https://nexadigital.com/hizmetler/ai-chatbot",
+        url: "https://wearenexa.co/hizmetler/ai-chatbot",
         images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Yapay Zeka Chatbot - Nexa Digital" }]
     },
     twitter: {
@@ -28,10 +28,10 @@ export default function AiChatbot() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://nexadigital.com/hizmetler/ai-chatbot#service",
+        "@id": "https://wearenexa.co/hizmetler/ai-chatbot#service",
         "name": "Otonom Yapay Zeka Satış Asistanı",
         "provider": {
-            "@id": "https://nexadigital.com/#organization"
+            "@id": "https://wearenexa.co/#organization"
         },
         "description": "7/24 uyumaz, hastalanmaz, itiraz karşılar ve satış kapatır. İşletmenizin dijital beyni.",
         "serviceType": "Artificial Intelligence Consulting"

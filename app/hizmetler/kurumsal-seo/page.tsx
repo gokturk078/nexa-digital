@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     title: "Kurumsal SEO Hizmeti | Nexa Digital",
     description: "Türkiye ve Kıbrıs'ın pazar liderlerine özel, risksiz ve gelir odaklı Kurumsal SEO danışmanlığı. Rakiplerinizi ezip geçin.",
     alternates: {
-        canonical: "https://nexadigital.com/hizmetler/kurumsal-seo"
+        canonical: "https://wearenexa.co/hizmetler/kurumsal-seo"
     },
     openGraph: {
         title: "Kurumsal SEO Otoritesi | Nexa Digital",
         description: "Sektörünüzdeki tüm organik talebi emen Dijital Otorite inşa ediyoruz.",
-        url: "https://nexadigital.com/hizmetler/kurumsal-seo",
+        url: "https://wearenexa.co/hizmetler/kurumsal-seo",
         images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Kurumsal SEO - Nexa Digital" }]
     },
     twitter: {
@@ -28,10 +28,10 @@ export default function KurumsalSeo() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://nexadigital.com/hizmetler/kurumsal-seo#service",
+        "@id": "https://wearenexa.co/hizmetler/kurumsal-seo#service",
         "name": "Kurumsal SEO Danışmanlığı",
         "provider": {
-            "@id": "https://nexadigital.com/#organization"
+            "@id": "https://wearenexa.co/#organization"
         },
         "description": "Büyük ölçekli web siteleri ve e-ticaret platformları için tasarlanmış, trafik değil gelir garantili organik büyüme mimarisi.",
         "serviceType": "Search Engine Optimization"

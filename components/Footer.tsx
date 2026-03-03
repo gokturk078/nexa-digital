@@ -66,7 +66,7 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-3 text-gray-400">
               <Mail size={20} className="shrink-0 text-[var(--color-gold)]" />
-              <a href="mailto:info@nexadigital.com" className="hover:text-white transition-colors">info@nexadigital.com</a>
+              <a href="mailto:info@wearenexa.co" className="hover:text-white transition-colors">info@wearenexa.co</a>
             </div>
             <div className="flex items-center gap-3 text-gray-400">
               <Phone size={20} className="shrink-0 text-[var(--color-gold)]" />

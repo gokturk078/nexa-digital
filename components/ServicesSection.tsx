@@ -6,46 +6,51 @@ import { GlassCard } from './ui/GlassCard';
 import ScrollReveal from './ui/ScrollReveal';
 import { Layout, Search, Cpu, BarChart3, Globe, Zap } from 'lucide-react';
 
-const services = [
-    {
-        title: 'Lüks Web Tasarım',
-        description: 'Saniyede açılan, Apple standartlarında, dönüşüm odaklı dijital sanat eserleri.',
-        icon: Layout,
-        color: 'var(--color-gold)',
-    },
-    {
-        title: 'Kurumsal SEO',
-        description: 'Sektörünüzün en karlı anahtar kelimelerinde ilk sayfayı domine edin.',
-        icon: Search,
-        color: 'var(--color-cyan)',
-    },
-    {
-        title: 'AI Entegrasyonları',
-        description: 'Müşterilerinizi 7/24 karşılayan, satış kapatan akıllı AI chatbot sistemleri.',
-        icon: Cpu,
-        color: 'var(--color-gold)',
-    },
-    {
-        title: 'Performans Pazarlama',
-        description: 'Veri odaklı stratejilerle reklam bütçenizi maksimum ROI\'ye dönüştürün.',
-        icon: BarChart3,
-        color: 'var(--color-cyan)',
-    },
-    {
-        title: 'Global Branding',
-        description: 'Markanızı Kıbrıs ve Türkiye\'den dünya vitrinine taşıyan dijital kimlik.',
-        icon: Globe,
-        color: 'var(--color-gold)',
-    },
-    {
-        title: 'Hız Optimizasyonu',
-        description: 'Google Core Web Vitals skorlarında %100 başarı ve anlık yükleme hızı.',
-        icon: Zap,
-        color: 'var(--color-cyan)',
-    },
-];
+interface ServicesProps {
+    region?: 'tr' | 'cy';
+}
 
-export function ServicesSection() {
+export function ServicesSection({ region }: ServicesProps) {
+    const services = [
+        {
+            title: 'Lüks Web Tasarım',
+            description: 'Saniyede açılan, Apple standartlarında, dönüşüm odaklı dijital sanat eserleri.',
+            icon: Layout,
+            color: 'var(--color-gold)',
+        },
+        {
+            title: 'Kurumsal SEO',
+            description: 'Sektörünüzün en karlı anahtar kelimelerinde ilk sayfayı domine edin.',
+            icon: Search,
+            color: 'var(--color-cyan)',
+        },
+        {
+            title: 'AI Entegrasyonları',
+            description: 'Müşterilerinizi 7/24 karşılayan, satış kapatan akıllı AI chatbot sistemleri.',
+            icon: Cpu,
+            color: 'var(--color-gold)',
+        },
+        {
+            title: 'Performans Pazarlama',
+            description: 'Veri odaklı stratejilerle reklam bütçenizi maksimum ROI\'ye dönüştürün.',
+            icon: BarChart3,
+            color: 'var(--color-cyan)',
+        },
+        {
+            title: 'Global Branding',
+            description: region === 'tr'
+                ? 'Markanızı Türkiye\'den dünya vitrinine taşıyan, global standartlarda dijital kimlik.'
+                : 'Markanızı Kıbrıs\'tan dünya vitrinine taşıyan, global standartlarda dijital kimlik.',
+            icon: Globe,
+            color: 'var(--color-gold)',
+        },
+        {
+            title: 'Hız Optimizasyonu',
+            description: 'Google Core Web Vitals skorlarında %100 başarı ve anlık yükleme hızı.',
+            icon: Zap,
+            color: 'var(--color-cyan)',
+        },
+    ];
     return (
         <section id="hizmetler" className="py-24 lg:py-32 px-4">
             <div className="container mx-auto">

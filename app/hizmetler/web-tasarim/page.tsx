@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     title: "Premium Web Tasarım Özelleştirilmiş Çözümler | Nexa Digital",
     description: "Standart şablonlara veda edin. Kıbrıs ve Türkiye'deki markanızı %300 daha fazla satış yapacak benzersiz UX/UI dizaynı ile dönüştürün.",
     alternates: {
-        canonical: "https://nexadigital.com/hizmetler/web-tasarim"
+        canonical: "https://wearenexa.co/hizmetler/web-tasarim"
     },
     openGraph: {
         title: "God Mode Seçenekli Web Tasarım | Nexa Digital",
         description: "Müşterilerinizi ilk 3 saniyede bağlayacak 'Apple-Grade' animasyonlu Satış Makinesi inşası.",
-        url: "https://nexadigital.com/hizmetler/web-tasarim",
+        url: "https://wearenexa.co/hizmetler/web-tasarim",
         images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Premium Web Tasarım - Nexa Digital" }]
     },
     twitter: {
@@ -28,10 +28,10 @@ export default function WebTasarim() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://nexadigital.com/hizmetler/web-tasarim#service",
+        "@id": "https://wearenexa.co/hizmetler/web-tasarim#service",
         "name": "Satış Makinesi Web Tasarımı (High-End UX/UI)",
         "provider": {
-            "@id": "https://nexadigital.com/#organization"
+            "@id": "https://wearenexa.co/#organization"
         },
         "description": "Ziyaretçiyi saniyeler içinde büyüleyen, psikolojik 'Satış Hunisi' standartlarına göre kodlanmış ultra-hızlı web mimarisi.",
         "serviceType": "Web Design & Development"

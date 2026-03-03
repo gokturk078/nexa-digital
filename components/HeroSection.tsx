@@ -3,8 +3,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export function HeroSection() {
-  const [greeting, setGreeting] = useState("Kıbrıs'ın #1 Premium Dijital Ajansı");
+interface HeroProps {
+  region?: 'tr' | 'cy';
+}
+
+export function HeroSection({ region }: HeroProps) {
+  const [greeting, setGreeting] = useState(
+    region === 'cy' ? "Kıbrıs'ın #1 Premium Dijital Ajansı" :
+      region === 'tr' ? "Türkiye'nin En Prestijli Dijital Ekosistem Mimarı" :
+        "Lüks Dijital Ekosistem Mimarları"
+  );
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -18,10 +26,12 @@ export function HeroSection() {
 
   useEffect(() => {
     const hour = new Date().getHours();
+    if (region) return; // Prop varsa dinamik saati ezmeyelim, bölge öncelikli
+
     if (hour >= 6 && hour < 12) setGreeting("Sektörünüzün Lideri Olmaya Hazır Mısınız?");
     else if (hour >= 12 && hour < 18) setGreeting("Dijitalde Rakiplerinize %300 Fark Atın.");
     else setGreeting("Sıradan Web Sitelerini Unutun. Satış Makinesi İnşa Ediyoruz.");
-  }, []);
+  }, [region]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 px-4 md:px-6">

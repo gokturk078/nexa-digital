@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nexadigital.com'),
+  metadataBase: new URL('https://wearenexa.co'),
   title: {
     default: "Nexa Digital | Kıbrıs & Türkiye'nin 1 Numaralı Dijital Ajansı",
     template: "%s | Nexa Digital"
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "türkiye premium dijital ajans", "kıbrıs e-ticaret yazılımı", "dönüşüm odaklı web sitesi",
     "kurumsal seo danışmanlığı", "kıbrıs dijital pazarlama", "ai chatbot entegrasyonu"
   ],
-  authors: [{ name: "Nexa Digital", url: "https://nexadigital.com" }],
+  authors: [{ name: "Nexa Digital", url: "https://wearenexa.co" }],
   creator: "Nexa Digital",
   publisher: "Nexa Digital",
   formatDetection: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://nexadigital.com",
+    url: "https://wearenexa.co",
     siteName: "Nexa Digital - Elite Web Design & SEO",
     title: "Nexa Digital | Kıbrıs & Türkiye'nin Premium Dijital Ajansı",
     description: "Sıradan bir web sitesi değil, 7/24 müşteri getiren bir satış makinesi inşa ediyoruz. Hemen ücretsiz strateji görüşmesi ayarlayın.",
@@ -71,14 +71,16 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://nexadigital.com",
+    canonical: "https://wearenexa.co",
     languages: {
-      'tr-TR': 'https://nexadigital.com',
-      'tr-CY': 'https://nexadigital.com',
+      'tr-TR': 'https://wearenexa.co',
+      'tr-CY': 'https://wearenexa.co',
     },
   },
   verification: {
     google: "yoursiteverificationcode", // SEO Check: Add Google verification
+    yandex: "yandex-verification",
+    me: ["nexadigital@gmail.com"],
   },
 };
 
@@ -90,8 +92,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Nexa Digital",
-    "url": "https://nexadigital.com",
-    "logo": "https://nexadigital.com/logo.png",
+    "url": "https://wearenexa.co",
+    "logo": "https://wearenexa.co/logo.png",
     "sameAs": [
       "https://instagram.com/nexadigital",
       "https://linkedin.com/company/nexadigital"
@@ -103,10 +105,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://nexadigital.com/#business",
+    "@id": "https://wearenexa.co/#business",
     "name": "Nexa Digital - Lüks Web Tasarım & Kurumsal SEO",
-    "image": "https://nexadigital.com/og-image.jpg",
-    "url": "https://nexadigital.com",
+    "image": "https://wearenexa.co/og-image.jpg",
+    "url": "https://wearenexa.co",
     "telephone": "+905480000000",
     "priceRange": "₺₺₺",
     "areaServed": [
@@ -200,6 +202,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ]
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": "https://wearenexa.co"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Hizmetler",
+        "item": "https://wearenexa.co/#hizmetler"
+      }
+    ]
+  };
+
   return (
     <html lang="tr" className={`${sora.variable} ${inter.variable}`}>
       <head>
@@ -210,6 +231,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       </head>
       <body className="font-sans antialiased text-white bg-black selection:bg-[#C9A84C] selection:text-black" suppressHydrationWarning>
         {children}

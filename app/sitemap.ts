@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://nexadigital.com';
+  const baseUrl = 'https://wearenexa.co';
   const lastModified = new Date();
 
   return [
@@ -24,46 +24,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/hizmetler/kurumsal-seo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/hizmetler/web-tasarim`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/hizmetler/ai-chatbot`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/turkiye-dijital-ajans`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#hizmetler`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#fiyatlandirma`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#randevu`,
-      lastModified,
+      url: `${baseUrl}/hizmetler/kurumsal-seo`,
+      lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hizmetler/web-tasarim`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hizmetler/ai-chatbot`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
   ];
 }

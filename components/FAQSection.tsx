@@ -7,7 +7,11 @@ import StaggerContainer, { staggerItem } from './ui/StaggerContainer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-export function FAQSection() {
+interface FAQProps {
+  region?: 'tr' | 'cy';
+}
+
+export function FAQSection({ region }: FAQProps) {
   const faqs = [
     {
       q: "Neden bu kadar pahalısınız?",
@@ -22,8 +26,10 @@ export function FAQSection() {
       a: "Projenin kapsamına göre 10-25 iş günü. Starter paket 10, Premium 15, Corporate 25 iş günü. Acil projeler için express seçenek mevcuttur."
     },
     {
-      q: "Sadece Kıbrıs'ta mı hizmet veriyorsunuz?",
-      a: "Hayır. Kıbrıs ve Türkiye genelinde hizmet veriyoruz. Uzaktan çalışma modelimizle dünyanın her yerindeki işletmelere dijital çözüm üretebiliyoruz."
+      q: region === 'tr' ? "Sadece Türkiye'de mi hizmet veriyorsunuz?" : "Sadece Kıbrıs'ta mı hizmet veriyorsunuz?",
+      a: region === 'tr'
+        ? "İstanbul merkezli ekibimizle tüm Türkiye ve Kıbrıs genelinde hizmet veriyoruz. Hibrit çalışma modelimizle her noktadaki işletmeye premium çözüm sunuyoruz."
+        : "Hayır. Kıbrıs ve Türkiye genelinde hizmet veriyoruz. Lefkoşa ve Girne'deki fiziksel varlığımızın yanı sıra tüm dünyaya dijital çözüm üretebiliyoruz."
     },
     {
       q: "Mevcut sitemin yenilenmesi mümkün mü?",
@@ -67,7 +73,7 @@ export function FAQSection() {
                     <ChevronDown size={24} />
                   </motion.div>
                 </div>
-                
+
                 <AnimatePresence>
                   {openIndex === index && (
                     <motion.div
