@@ -95,8 +95,11 @@ export const metadata: Metadata = {
   verification: {
     google: "yoursiteverificationcode", // SEO Check: Add Google verification
     yandex: "yandex-verification",
-    me: ["nexadigital@gmail.com"],
+    me: ["info@wearenexa.co"],
   },
+};
+
+export const viewport = {
   themeColor: "#000000",
 };
 
@@ -111,8 +114,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "url": "https://wearenexa.co",
     "logo": "https://wearenexa.co/logo.png",
     "sameAs": [
-      "https://instagram.com/nexadigital",
-      "https://linkedin.com/company/nexadigital"
+      "https://instagram.com/wearenexa",
+      "https://linkedin.com/company/wearenexa"
     ],
     "description": "Kuzey Kıbrıs ve Türkiye'nin premium dijital ajansı. Satış garantili web tasarım, SEO ve AI çözümleri."
   };
