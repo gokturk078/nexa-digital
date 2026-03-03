@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sora: var(--font-sora);
+    --font-inter: var(--font-inter);
+
+    --color-gold: #C9A84C;
+    --color-cyan: #00F5FF;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 0%;
+        --foreground: 0 0% 100%;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-black text-white antialiased selection:bg-[#C9A84C] selection:text-black;
+        font-family: var(--font-inter), sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-sora;
+    }
+}
+
+@layer utilities {
+    .glow-gold {
+        box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    }
+
+    .glow-cyan {
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+    }
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#C9A84C] to-[#FFD700];
+    }
+}

@@ -1,0 +1,131 @@
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import { SectionHeading } from './ui/SectionHeading';
+import { GlassCard } from './ui/GlassCard';
+import ScrollReveal from './ui/ScrollReveal';
+import { ArrowRight } from 'lucide-react';
+
+export function PortfolioSection() {
+  const projects = [
+    {
+      category: "Restoran & Kafe",
+      name: "Noir QR Menü & Landing",
+      description: "Müşteri deneyimini dijitalleştiren, temassız sipariş ve premium restoran vitrini.",
+      link: "https://noir-menu-alpha.vercel.app"
+    },
+    {
+      category: "Sağlık",
+      name: "Premium Diş Kliniği",
+      description: "Randevu odaklı, güven inşa eden diş kliniği ekosistemi",
+      link: "https://dis-klinigi.vercel.app"
+    },
+    {
+      category: "Güzellik",
+      name: "Lüks Güzellik Merkezi",
+      description: "Rezervasyon ve hizmet vitrinli güzellik merkezi deneyimi",
+      link: "https://guzellik-merkezi-delta.vercel.app"
+    },
+    {
+      category: "Hukuk",
+      name: "Yılmaz Hukuk",
+      description: "Otorite ve güven yansıtan kurumsal hukuk platformu.",
+      link: "https://avukat-ofisi.vercel.app",
+      image: "/yilmaz-hukuk.png"
+    },
+    {
+      category: "Emlak",
+      name: "Nexa Luxe Estate",
+      description: "Kuzey Kıbrıs lüks emlak arama ve vitrin platformu",
+      link: "https://nexa-luxe.vercel.app/tr"
+    },
+    {
+      category: "Otomotiv",
+      name: "Oto Yasin",
+      description: "Müşteriyi anında yakalayan, güven veren ve doğrudan satışa çeviren profesyonel otomotiv vitrini.",
+      link: "https://oto-yasin.com"
+    },
+    {
+      category: "Hizmet",
+      name: "Fethiye İK",
+      description: "Kurumsal kimliği yansıtan, etkileşim odaklı insan kaynakları ve danışmanlık platformu.",
+      link: "https://fethiyeik.com"
+    },
+    {
+      category: "İnşaat",
+      name: "Repsam Construction",
+      description: "Güçlü marka imajı ve tamamlanan projeleri sergileyen premium inşaat portfolyosu.",
+      link: "https://repsam-construction.vercel.app"
+    }
+  ];
+
+  return (
+    <section id="portfoy" className="py-24 lg:py-32 px-4 md:px-6 relative">
+      <div className="container mx-auto max-w-7xl">
+        <SectionHeading
+          title="Canlı Projelerimiz"
+          subtitle="Demo değil, gerçek. Tıklayın, deneyimleyin, farkı hissedin."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <ScrollReveal key={index} delay={index * 0.1}>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group glass rounded-2xl overflow-hidden hover:border-[#C9A84C]/30 transition-all duration-500 block h-full"
+              >
+                {/* Live Preview Area */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105 z-10"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <>
+                      {/* Loading Spinner */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-0">
+                        <div className="w-8 h-8 border-2 border-[var(--color-gold)] border-t-transparent rounded-full animate-spin"></div>
+                      </div>
+                      {/* Iframe */}
+                      <iframe
+                        src={project.link}
+                        className="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none transition-transform duration-700 group-hover:scale-[0.26] border-0 z-10"
+                        title={project.name}
+                        loading="lazy"
+                        tabIndex={-1}
+                      />
+                    </>
+                  )}
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+                    <span className="px-6 py-3 bg-gradient-to-r from-[#C9A84C] to-[#00D4FF] text-black font-semibold rounded-xl transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                      Canlı Demo →
+                    </span>
+                  </div>
+                </div>
+
+                {/* Alt bilgi alanı */}
+                <div className="p-6">
+                  <span className="text-[#C9A84C] text-xs font-semibold tracking-widest uppercase">
+                    {project.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-white mt-2 mb-2 group-hover:text-[#C9A84C] transition-colors">
+                    {project.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{project.description}</p>
+                </div>
+              </a>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
