@@ -15,13 +15,31 @@ export function HeroSection({ region }: HeroProps) {
   );
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  const [hasPointer, setHasPointer] = useState(false);
+
   useEffect(() => {
+    // Only track mouse if device has a fine pointer (mouse/trackpad), skipping mobile touchscreens
+    const mediaQuery = window.matchMedia('(pointer: fine)');
+    setHasPointer(mediaQuery.matches);
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (mediaQuery.matches) {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    if (mediaQuery.matches) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+
+    // Also update if device capabilities change (e.g. attaching a mouse to a tablet)
+    const handleMediaChange = (e: MediaQueryListEvent) => setHasPointer(e.matches);
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      mediaQuery.removeEventListener('change', handleMediaChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -37,15 +55,15 @@ export function HeroSection({ region }: HeroProps) {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 px-4 md:px-6">
       {/* Arka plan atmosfer efektleri */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Sol üst altın glow */}
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#C9A84C] opacity-[0.07] blur-[150px]" />
-        {/* Sağ alt mavi glow */}
-        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#00D4FF] opacity-[0.05] blur-[150px]" />
-        {/* Merkez çok hafif gradient */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-white/[0.02] to-transparent" />
+        {/* Sol üst altın glow - Mobile optimized blur */}
+        <div className="absolute -top-40 -left-40 w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-[#C9A84C] opacity-[0.05] md:opacity-[0.07] blur-[80px] md:blur-[150px]" />
+        {/* Sağ alt mavi glow - Mobile optimized blur */}
+        <div className="absolute -bottom-40 -right-40 w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full bg-[#00D4FF] opacity-[0.04] md:opacity-[0.05] blur-[80px] md:blur-[150px]" />
+        {/* Merkez çok hafif gradient - Reduced size on mobile */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[800px] md:h-[800px] rounded-full bg-gradient-radial from-white/[0.02] to-transparent" />
         {/* Grid pattern overlay */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.02] md:opacity-[0.03]"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -54,22 +72,24 @@ export function HeroSection({ region }: HeroProps) {
         />
       </div>
 
-      {/* Mouse Tracking Glow */}
-      <motion.div
-        className="absolute pointer-events-none z-0"
-        style={{
-          background: 'radial-gradient(600px at var(--x) var(--y), rgba(201, 168, 76, 0.15), transparent 80%)',
-          left: 0,
-          top: 0,
-          width: '100%',
-          height: '100%',
-          '--x': `${mousePosition.x}px`,
-          '--y': `${mousePosition.y}px`,
-        } as React.CSSProperties}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      />
+      {/* Mouse Tracking Glow - Only render on devices with pointer */}
+      {hasPointer && (
+        <motion.div
+          className="absolute pointer-events-none z-0 hidden md:block"
+          style={{
+            background: 'radial-gradient(600px at var(--x) var(--y), rgba(201, 168, 76, 0.15), transparent 80%)',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            '--x': `${mousePosition.x}px`,
+            '--y': `${mousePosition.y}px`,
+          } as React.CSSProperties}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      )}
 
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         {/* Badge */}

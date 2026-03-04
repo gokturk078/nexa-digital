@@ -29,14 +29,15 @@ export default function ScrollReveal({
         <motion.div
             initial={{
                 opacity: 0,
-                ...directions[direction]
+                ...directions[direction],
+                willChange: "transform, opacity"
             }}
             whileInView={{
                 opacity: 1,
                 x: 0,
                 y: 0
             }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{
                 type: "spring",
                 stiffness: 100,
